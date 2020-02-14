@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "Beidaihe Railway Station",
+        "description": "おはようございます",
+        "type": "Transportation",
+        "coordinates": {
+            "latitude": 39.851288,
+            "longitude": 119.419926
+        },
+        "imageName": "1"
+    },
+    {
+        "id": 2,
+        "name": "Some Bus Station",
+        "description": "A bus station",
+        "type": "Transportation",
+        "coordinates": {
+            "latitude": 39.851288,
+            "longitude": 119.419926
+        },
+        "imageName": "2"
+    },
+    {
+        "id": 3,
+        "name": "Nice Hotel",
+        "description": "おはようございます",
+        "type": "Hotel",
+        "coordinates": {
+            "latitude": 39.851288,
+            "longitude": 119.419926
+        },
+        "imageName": "3"
+    }
+]
