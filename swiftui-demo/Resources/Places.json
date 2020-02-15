@@ -8,7 +8,8 @@
             "latitude": 39.851288,
             "longitude": 119.419926
         },
-        "imageName": "1"
+        "imageName": "1",
+        "isFavorite": true
     },
     {
         "id": 2,
@@ -19,7 +20,8 @@
             "latitude": 39.851288,
             "longitude": 119.419926
         },
-        "imageName": "2"
+        "imageName": "2",
+        "isFavorite": true
     },
     {
         "id": 3,
@@ -30,6 +32,7 @@
             "latitude": 39.851288,
             "longitude": 119.419926
         },
-        "imageName": "3"
+        "imageName": "3",
+        "isFavorite": false
     }
 ]

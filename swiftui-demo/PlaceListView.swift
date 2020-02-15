@@ -9,21 +9,35 @@
 import SwiftUI
 
 struct PlaceListView: View {
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
         NavigationView {
-            List (placesData) { place in
-                NavigationLink(destination: DetailView()) {
-                    PlaceRowView(place: place)
+            List {
+                Toggle (isOn: $userData.showFavoritesOnly) {
+                    Text("Favorites Only")
+                }
+                ForEach(userData.places) { place in
+                    if !self.userData.showFavoritesOnly
+                        || place.isFavorite {
+                        NavigationLink(destination: DetailView(place: place)) {
+                            PlaceRowView(place: place)
+                        }
+                    }
                 }
             }
             .navigationBarTitle(Text("All Good Places"))
         }
-        
     }
 }
 
 struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
+//        ForEach(["iPhone 6s", "iPhone 11 Pro"], id: \.self) { deviceName in
+//            PlaceListView()
+//                .previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
         PlaceListView()
     }
 }

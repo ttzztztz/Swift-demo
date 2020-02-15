@@ -9,17 +9,36 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var userData: UserData
+    var place: GoodPlace
+    
+    var placeIndex: Int {
+        userData.places.firstIndex(where: {$0.id == place.id})!
+    }
+    
     @State private var showingAlert = false
     var body: some View {
         VStack {
-            MapView().frame(height: 300).cornerRadius(36)
-            CircleImage().offset(y: -128).padding(.bottom, -96)
+            MapView(latitude: place.location.latitude, longitude: place.location.longitude).frame(height: 300).cornerRadius(36)
+            CircleImage(image: place.image).offset(y: -128).padding(.bottom, -96)
             VStack (alignment: .leading) {
-                Text("Beidaihe Railway station").font(.headline).foregroundColor(.red)
                 HStack {
-                    Text("おはようございます").font(.subheadline)
+                    Text(place.name).font(.title).foregroundColor(.red)
+                    Button(action: {
+                        self.userData.places[self.placeIndex].isFavorite.toggle()
+                    }) {
+                        if self.userData.places[self.placeIndex].isFavorite {
+                            Image(systemName: "star.fill").foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "star").foregroundColor(.gray)
+                        }
+                    }
+                }
+                
+                HStack {
+                    Text(place.description).font(.subheadline)
                     Spacer()
-                    Text("Transportation").font(.subheadline)
+                    Text(place.type == PlaceType.hotel ? "Hotel" : "Transportation").font(.subheadline)
                 }
             }
             Button(action: {
@@ -35,6 +54,6 @@ struct DetailView: View {
 }
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(place: placesData[0])
     }
 }

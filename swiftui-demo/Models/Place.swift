@@ -14,6 +14,7 @@ struct GoodPlace : Hashable, Codable, Identifiable {
     fileprivate var imageName: String
     var description: String
     var type: PlaceType
+    var isFavorite: Bool
     
     fileprivate var coordinates: Coordinates
     var location: CLLocationCoordinate2D {

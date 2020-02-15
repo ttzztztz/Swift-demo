@@ -9,14 +9,15 @@
 import SwiftUI
 
 struct CircleImage: View {
+    var image: Image
     var body: some View {
-        Image("yosemite").resizable().frame(width: 196, height: 196, alignment: .top).clipShape(Circle())
+        image.resizable().frame(width: 196, height: 196, alignment: .top).clipShape(Circle())
             .shadow(radius: 10)
     }
 }
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage()
+        CircleImage(image: Image("yosemite"))
     }
 }

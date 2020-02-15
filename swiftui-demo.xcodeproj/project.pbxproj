@@ -15,6 +15,7 @@
 		0C99F01F23F6CB1B00B4C51B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99F01E23F6CB1B00B4C51B /* 1.jpg */; };
 		0C99F02223F6CB6D00B4C51B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99F02023F6CB6D00B4C51B /* 3.jpg */; };
 		0C99F02323F6CB6D00B4C51B /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99F02123F6CB6D00B4C51B /* 2.jpg */; };
+		0CBB5B2423F82DA300D38F0D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB5B2323F82DA300D38F0D /* UserData.swift */; };
 		0CC9F22023F433F5003EE53A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC9F21F23F433F5003EE53A /* AppDelegate.swift */; };
 		0CC9F22223F433F5003EE53A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC9F22123F433F5003EE53A /* SceneDelegate.swift */; };
 		0CC9F22423F433F5003EE53A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC9F22323F433F5003EE53A /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		0C99F01E23F6CB1B00B4C51B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		0C99F02023F6CB6D00B4C51B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		0C99F02123F6CB6D00B4C51B /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		0CBB5B2323F82DA300D38F0D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0CC9F21C23F433F5003EE53A /* swiftui-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC9F21F23F433F5003EE53A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CC9F22123F433F5003EE53A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0C99F01D23F6C39B00B4C51B /* Models */,
 				0C6882FA23F58A66006F6C52 /* PlaceRowView.swift */,
 				0CEED59023F6E16D00F39844 /* PlaceListView.swift */,
+				0CBB5B2323F82DA300D38F0D /* UserData.swift */,
 			);
 			path = "swiftui-demo";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				0C6882EE23F57DA0006F6C52 /* MapView.swift in Sources */,
 				0CEED59323F6E49B00F39844 /* DetailView.swift in Sources */,
 				0CEED59123F6E16D00F39844 /* PlaceListView.swift in Sources */,
+				0CBB5B2423F82DA300D38F0D /* UserData.swift in Sources */,
 				0C6882FB23F58A66006F6C52 /* PlaceRowView.swift in Sources */,
 				0C6882F323F5856F006F6C52 /* Place.swift in Sources */,
 				0CC9F22223F433F5003EE53A /* SceneDelegate.swift in Sources */,
