@@ -8,6 +8,20 @@
 
 import SwiftUI
 
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        let insertion = AnyTransition.move(edge: .trailing).combined(with: .opacity)
+        let removal = AnyTransition.scale.combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
+extension Animation {
+    static var ripple: Animation {
+        Animation.spring(dampingFraction: 0.5).speed(2)
+    }
+}
+
 struct DetailView: View {
     @EnvironmentObject var userData: UserData
     var place: GoodPlace
@@ -17,10 +31,11 @@ struct DetailView: View {
     }
     
     @State private var showingAlert = false
+    @State private var showDetail = true
     var body: some View {
         VStack {
             MapView(latitude: place.location.latitude, longitude: place.location.longitude).frame(height: 300).cornerRadius(36)
-            CircleImage(image: place.image).offset(y: -128).padding(.bottom, -96)
+            CircleImage(image: place.image).offset(y: -128).padding(.bottom, -96).animation(.ripple)
             VStack (alignment: .leading) {
                 HStack {
                     Text(place.name).font(.title).foregroundColor(.red)
@@ -33,14 +48,29 @@ struct DetailView: View {
                             Image(systemName: "star").foregroundColor(.gray)
                         }
                     }
+                    
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            self.showDetail.toggle()
+                        }
+                    }) {
+                        Image(systemName: "chevron.right.circle")
+                            .imageScale(.large)
+                            .rotationEffect(
+                                .degrees(showDetail ? 90 : 0))
+                            .animation(.spring())
+                    }
                 }
                 
-                HStack {
-                    Text(place.description).font(.subheadline)
-                    Spacer()
-                    Text(place.type == PlaceType.hotel ? "Hotel" : "Transportation").font(.subheadline)
+                if self.showDetail {
+                    HStack {
+                        Text(place.description).font(.subheadline)
+                        Spacer()
+                        Text(place.type == PlaceType.hotel ? "Hotel" : "Transportation").font(.subheadline)
+                    }.transition(.moveAndFade)
                 }
             }
+            
             Button(action: {
                 self.showingAlert = true
             }) {
@@ -48,12 +78,13 @@ struct DetailView: View {
             }.alert(isPresented: $showingAlert) {
                 Alert(title: Text("hi!!!"), message: Text("test!!!"))
             }
+            
         }
         .padding()
     }
 }
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(place: placesData[0])
+        DetailView(place: placesData[0]).environmentObject(UserData())
     }
 }

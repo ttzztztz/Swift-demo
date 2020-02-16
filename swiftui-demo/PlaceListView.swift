@@ -33,11 +33,6 @@ struct PlaceListView: View {
 
 struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
-//        ForEach(["iPhone 6s", "iPhone 11 Pro"], id: \.self) { deviceName in
-//            PlaceListView()
-//                .previewDevice(PreviewDevice(rawValue: deviceName))
-//                .previewDisplayName(deviceName)
-//        }
-        PlaceListView()
+        PlaceListView().environmentObject(UserData())
     }
 }
